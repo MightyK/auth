@@ -106,6 +106,20 @@ app.get('/secrets', function(req, res) {
     }
 });
 
+app.get('/submit', function(req, res) {
+    if (req.isAuthenticated()) {
+        res.render('submit');
+    } else {
+        res.redirect('/login');
+    }
+});
+
+app.post('/submit', function(req, res) {
+    const submittedSecret = req.body.secret;
+
+    
+});
+
 app.get('/logout', function(req, res) {
     req.logout();
     res.redirect('/');
